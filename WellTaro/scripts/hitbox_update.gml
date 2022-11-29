@@ -8,31 +8,27 @@ if(attack == AT_EXTRA_1 && hbox_num == 1){
 }
 
 //Dair
-if(attack == AT_DAIR && hbox_num == 1){
-    if(!free){
-        if(!grounded){
+if (attack == AT_DAIR && hbox_num == 1)
+{
+    if (grounded)
+    {
+        damage = 0;
+        image_xscale = 1/200
+        image_yscale = 1/200
+        image_index += 0.3;
+        if (image_index >= 2)
+        {
+            destroyed = true;
+        }
+    }
+    else
+    {
+        if !free
+        {
             lifetime = 0;
             image_index = 0;
             sprite_index = sprite_get("dairprojectiledead")
             grounded = true;
-        }
-        
-        
-        
-    }
-    if(grounded){
-        damage = 0;
-        image_xscale = 1/200
-        image_yscale = 1/200
-        image_index +=0.3;
-        if(image_index >= 2){
-            destroyed = true;
-        }
-    }else{
-        if(lifetime > 2){
-            image_index = 0;
-        }else{
-            image_index = 1;
         }
         
     }

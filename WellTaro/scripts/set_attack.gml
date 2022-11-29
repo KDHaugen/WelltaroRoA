@@ -45,13 +45,4 @@ if(attack == AT_EXTRA_2){
     }
     
     //#endregion
-    //#region Dspecial
-    if(attack == AT_DSPECIAL){
-            ammo-= 4;
-        if(!free){
-            vsp = -9;
-        }
-        dspec_used = true;
-    }
-    //#endregion
 //#endregion

@@ -22,6 +22,24 @@ if(state == PS_DOUBLE_JUMP && state_timer == 0 && ammo >0){
 }
 
 
+//DELTA CODE FOR HOLDING JUMP DURING JUMP TO TRIGGER DJUMP
+if (jump_down and (state == PS_FIRST_JUMP or state == PS_IDLE_AIR))
+{
+    jump_hold_timer++;
+}
+else
+{
+    jump_hold_timer = 0;
+}
+
+if jump_hold_timer >= jump_threshold
+{
+    set_state(PS_DOUBLE_JUMP);
+    state_timer = -1;
+    vsp = -djump_speed;
+}
+
+
 if(jump_down && state != PS_DOUBLE_JUMP && state != PS_FIRST_JUMP && state_cat == SC_AIR_NEUTRAL && djumps = 0){
     set_state(PS_DOUBLE_JUMP);
     state_timer = -1;
@@ -48,71 +66,45 @@ if(ammo > 1){
     //#region airdash
     
     if(ammo > 2){
-        has_airdodge = true;
         if(state == PS_AIR_DODGE ){
             if(free){
-                set_state(PS_ATTACK_AIR);
-                state_timer = 0;
-                image_index =0;
-                attack = AT_EXTRA_2;
-                window = 1;
+                set_attack(AT_EXTRA_2);
+                // state_timer = 0;
+                // image_index =0;
+                // attack = AT_EXTRA_2;
+                // window = 1;
                 adDirection = 0;
                 airdashTimer = 600;
             }
         }
-    }else{
-        has_airdodge = false;
     }
     airdashTimer++;
-    
-    
-    //#endregion
-    //#region Nair
-    
-    //Reset Nair Gravity
-    if(gravity_speed != 0.65){
-        if(state != PS_ATTACK_AIR || window > 2){
-            gravity_speed = 0.65;
-        }
-    }
-    
-    
-    
-    //#endregion
 
 //#endregion
 
 //#region Specials
     //#region nSpecial
-    vspsquared = vsp*vsp
-    hspsquared = hsp*hsp
-    netSpeed = sqrt(vspsquared + hspsquared)
+    // vspsquared = vsp*vsp
+    // hspsquared = hsp*hsp
+    // netSpeed = sqrt(vspsquared + hspsquared)
     
-    if(balloonHere){
-        draw_sprite_part(sprite_get("balloon_string"),0,0,0,200,20,x,y-80);
-        gravity_speed = 0.4;
-        max_fall = 7;
-        move_cooldown[AT_NSPECIAL] = 2;
-    }else{
-        gravity_speed = 0.65;
-        max_fall = 13;
+    // if(balloonHere){
+    //     draw_sprite_part(sprite_get("balloon_string"),0,0,0,200,20,x,y-80);
+    //     gravity_speed = 0.4;
+    //     max_fall = 7;
+    //     move_cooldown[AT_NSPECIAL] = 2;
+    // }else{
+    //     gravity_speed = 0.65;
+    //     max_fall = 13;
         
-    }
+    // }
     
     
-    //#endregion   
-    //#region Uspecial
+    // //#endregion   
+    // //#region Uspecial
     if(ammo < 2){
         move_cooldown[AT_USPECIAL] = 2;
     }
     
-    //#endregion
-    //#region Dspecial
-    if(!free && dspec_used && state != PS_ATTACK_GROUND){
-        dspec_used = false;
-    }
-    if(dspec_used || ammo < 4){
-        move_cooldown[AT_DSPECIAL] = 2;
-    }
     //#endregion
 //#endregion
