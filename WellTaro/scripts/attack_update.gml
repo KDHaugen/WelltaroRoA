@@ -2,6 +2,21 @@
 
 switch (attack)
 {
+    case AT_DSTRONG:
+        if window == 2 
+        {
+            if window_timer == 2
+            {
+                sound_play(asset_get("sfx_mol_norm_explode"));
+            }
+            else
+            if window_timer == 3
+            {
+                sound_play(asset_get("sfx_mol_flare_shoot"));
+                sound_play(asset_get("sfx_zetter_downb"));
+            }
+        }
+    break;
     case AT_FAIR:
         if window == 1 
         {

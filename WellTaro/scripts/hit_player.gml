@@ -2,6 +2,9 @@
 
 switch (my_hitboxID.attack)
 {
+    case AT_DSTRONG:
+        sound_play(asset_get("sfx_mol_flare_explode"));
+    break;
     case AT_NAIR:
         if my_hitboxID.hbox_num == 3
         {
