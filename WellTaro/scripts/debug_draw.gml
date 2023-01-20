@@ -2,7 +2,7 @@
 
 // draw_debug_text(x - 30, y - 80, "window: "+string(window));
 // draw_debug_text(x - 30, y - 100, "window_timer: "+string(window_timer));
-// draw_debug_text(x - 30, y - 120, "dspec_used: "+string(dspec_used));
+//draw_debug_text(x - 30, y - 120, "adDirection: "+string(adDirection));
 // draw_debug_text(x - 30, y - 100, "Ustrong_mine: "+string(Ustrong_mine))
 // draw_debug_text(x - 30, y - 80, "window_timer: "+string(floor(window_timer)));
 

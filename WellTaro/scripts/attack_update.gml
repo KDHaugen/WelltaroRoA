@@ -1,5 +1,101 @@
 // attack_update
 
+switch (attack)
+{
+    case AT_DSTRONG:
+        if window == 2 
+        {
+            if window_timer == 2
+            {
+                sound_play(asset_get("sfx_mol_norm_explode"));
+            }
+            else
+            if window_timer == 3
+            {
+                sound_play(asset_get("sfx_mol_flare_shoot"));
+                sound_play(asset_get("sfx_zetter_downb"));
+            }
+        }
+    break;
+    case AT_FAIR:
+        if window == 1 
+        {
+            switch window_timer
+            {
+                case 2:
+                    sound_play(asset_get("sfx_pom_fspecial_swing"),false,noone,0.5,1.14);
+                break;
+                case 6:
+                    sound_play(sound_get("fair_swipe"), false, noone, 0.7,1.04);
+                break;
+            }
+            
+        }
+    break;
+    case AT_UAIR:
+        
+        if window == 2 and window_timer == 3
+        {
+            sound_play(sound_get("uair_swipe"),false,noone,0.5,1.2);
+        }
+        if window == 2 and window_timer == 4
+        {
+            sound_play(asset_get("sfx_forsburn_combust"),false,noone,0.3,1.24);
+        }
+    
+    break;
+    case AT_JAB:
+        if window == 8 and window_timer == 4 and !hitpause
+        {
+            create_hitbox(attack,3,x,y)
+        }
+        if (window == 8 and window_timer == get_window_length(attack,window)-1 and !attack_down)
+        {
+            window++;
+            window_timer=0;
+        }
+    break;
+    case AT_DTILT:
+        if window == 2 and window_timer == 2 and !hitpause
+        {
+            sound_play(asset_get("sfx_swipe_weak1"));
+        }
+    break;
+    case AT_BAIR:
+        if window == 1
+        {
+            if window_timer == 1
+            {
+                sound_play(sound_get("bair_swipe"),false,noone,0.9,1.03);
+            }
+            else if window_timer == 3
+            {
+                sound_play(asset_get("sfx_syl_ustrong_part1"));
+            }
+            
+        }
+    break;
+    case AT_NAIR:
+        switch (window)
+        {
+            case 1:
+                if window_timer == 4
+                {
+                    sound_play(asset_get("sfx_swipe_medium1"),false,noone, 0.8,0.9);
+                }
+            break;
+            case 3:
+                if window_timer == 3
+                {
+                    sound_play(asset_get("sfx_swipe_medium2"));
+                    sound_play(asset_get("sfx_shovel_swing_med1"),false,noone,0.5,1.1)
+                }            
+            break;
+        }
+    break;
+}
+
+
 //B - Reversals
 if (attack == AT_NSPECIAL || attack == AT_FSPECIAL || attack == AT_DSPECIAL || attack == AT_USPECIAL || attack == AT_EXTRA_2    ){
     trigger_b_reverse();
@@ -271,3 +367,6 @@ if(attack == AT_FSTRONG){
     }
 }
 //#endregion
+
+#define get_window_length(atk, win)
+return get_window_value(atk,win,AG_WINDOW_LENGTH);

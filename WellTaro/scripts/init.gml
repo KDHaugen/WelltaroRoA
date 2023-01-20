@@ -16,22 +16,22 @@ walk_turn_time = 6;
 initial_dash_time = 14;
 initial_dash_speed = 7;
 dash_speed = 6.5;
-dash_turn_time = 10;
-dash_turn_accel = 1.5;
+dash_turn_time = 12;
+dash_turn_accel = 1;
 dash_stop_time = 4;
 dash_stop_percent = .35; //the value to multiply your hsp by when going into idle from dash or dashstop
 ground_friction = .5;
 moonwalk_accel = 1.4;
 
 jump_start_time = 5;
-jump_speed = 13;
-short_hop_speed = 8;
-djump_speed = 8;
-leave_ground_max = 7; //the maximum hsp you can have when you go from grounded to aerial without jumping
-max_jump_hsp = 7; //the maximum hsp you can have when jumping from the ground
-air_max_speed = 7; //the maximum hsp you can accelerate to when in a normal aerial state
+jump_speed = 12;
+short_hop_speed = 6;
+djump_speed = 9;
+leave_ground_max = 6; //the maximum hsp you can have when you go from grounded to aerial without jumping
+max_jump_hsp = 5.5; //the maximum hsp you can have when jumping from the ground
+air_max_speed = 5.5; //the maximum hsp you can accelerate to when in a normal aerial state
 jump_change = 3; //maximum hsp when double jumping. If already going faster, it will not slow you down
-air_accel = .3;
+air_accel = .2;
 prat_fall_accel = .85; //multiplier of air_accel while in pratfall
 air_friction = .02;
 max_djumps = 1;
@@ -40,9 +40,9 @@ walljump_hsp = 7;
 walljump_vsp = 11;
 walljump_time = 32;
 max_fall = 13; //maximum fall speed without fastfalling
-fast_fall = 16; //fast fall speed
-gravity_speed = .65;
-hitstun_grav = .5;
+fast_fall = 15; //fast fall speed
+gravity_speed = .6;
+hitstun_grav = .55;
 knockback_adj = 1.0; //the multiplier to KB dealt to you. 1 = default, >1 = lighter, <1 = heavier
 
 land_time = 4; //normal landing frames
@@ -103,6 +103,13 @@ bubble_y = 8;
 max_ammo = 8;
 ammo = 8;
 
+//hitfx
+hfx_fire = hit_fx_create(sprite_get("hfx_fire"), 32);
+hfx_fire_med = hit_fx_create(sprite_get("hfx_fire_med"), 24);
+hfx_fire_small = hit_fx_create(sprite_get("hfx_fire_small"), 15);
+hfx_dair = hit_fx_create(sprite_get("hfx_dair"), 24);
+jump_hold_timer = 0;
+jump_threshold = 20;
 
 //Heart Balloon
 heart_balloon = "string";
@@ -113,9 +120,8 @@ hbToWelltaro_dir = 10;
 
 //Air Dash
 adDirection = 0;
-ADspeed = 12;
+ADspeed = 8;
 airdashTimer = 600;
-
 
 //Dspecial
 dspec_used = false;
