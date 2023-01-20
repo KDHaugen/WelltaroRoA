@@ -88,9 +88,9 @@ if(ammo > 1){
 
 //#region Specials
     //#region nSpecial
-    vspsquared = vsp*vsp
-    hspsquared = hsp*hsp
-    netSpeed = sqrt(vspsquared + hspsquared)
+    // vspsquared = vsp*vsp
+    // hspsquared = hsp*hsp
+    // netSpeed = sqrt(vspsquared + hspsquared)
     
     if(balloonHere){
         gravity_speed = 0.4;
@@ -100,11 +100,11 @@ if(ammo > 1){
         gravity_speed = 0.65;
         max_fall = 13;
         
-    }
+    // }
     
     
-    //#endregion   
-    //#region Uspecial
+    // //#endregion   
+    // //#region Uspecial
     if(ammo < 2){
         move_cooldown[AT_USPECIAL] = 2;
     }
