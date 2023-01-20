@@ -100,7 +100,7 @@ if(ammo > 1){
         gravity_speed = 0.65;
         max_fall = 13;
         
-    // }
+    }
     
     
     // //#endregion   
